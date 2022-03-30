@@ -13,7 +13,7 @@ def director_dao():
     director_2 = Director(id=2, name="Dirk")
 
     objects = {1: director_1, 2: director_2}
-    director_dao.get_one = MagicMock(return_value=objects.get)
+    director_dao.get_one = MagicMock(side_effect=objects.get)
     director_dao.get_all = MagicMock(return_value=[director_1, director_2])
     director_dao.create = MagicMock(return_value=Director(id=3, name="Darkside"))
     director_dao.delete = MagicMock()
