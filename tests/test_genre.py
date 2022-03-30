@@ -13,7 +13,7 @@ def genre_dao():
     genre_2 = Genre(id=2, name="Drama")
 
     objects = {1: genre_1, 2: genre_2}
-    genre_dao.get_one = MagicMock(return_value=objects.get)
+    genre_dao.get_one = MagicMock(side_effect=objects.get)
     genre_dao.get_all = MagicMock(return_value=[genre_1, genre_2])
     genre_dao.create = MagicMock(return_value=Genre(id=3, name="Horrors"))
     genre_dao.delete = MagicMock()
